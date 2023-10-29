@@ -1,0 +1,123 @@
+function get_obj(id) {
+	return document.getElementById(id);
+}
+function input_tip(tip_text, tip_style) {
+	function showtip (f) {
+		obj.tipmode = f;
+		obj.value = (f)?tip_text:'';
+		obj.style.cssText = (f)?tip_style:css_buf;
+		flg = f;
+	}
+	var obj = get_obj ("src");
+	var css_buf = obj.style.cssText;
+	var flg = false;
+	if (obj.onblur || obj.onfocus) { return false; }
+	
+	obj.onblur = function () {if (obj.value == '') { showtip(true); }}
+	obj.onfocus = function () {if (flg) { showtip(false); }}
+	
+	showtip(obj != document.activeElement);
+}
+var p_box_id, p_msg_id, p_dulation;
+function init_showmsg (box_id, msg_id, dulation) {
+	p_box_id = box_id;
+	p_msg_id = msg_id;
+	if (dulation < 0) { dulation = 2000; }
+	p_dulation = dulation;
+	
+	var obj = get_obj(p_box_id);
+	obj.style.position = 'absolute';
+	obj.style.visibility = 'hidden';
+}
+function showmsg(msg) {
+	get_obj(p_msg_id).innerHTML = msg;
+	var msg = get_obj(p_box_id);
+
+	msg.style.top = (document.body.clientHeight + document.body.scrollTop - msg.clientHeight)/2;
+	msg.style.left = (document.body.clientWidth - msg.clientWidth)/2;
+	msg.style.visibility = 'visible';
+	var opa = 100;
+	
+	msg.onclick = function () {
+		msg.style.visibility = 'hidden';
+		opa = 0;
+	}
+	setTimeout ( function () {
+		if (opa <= 0) { return true; }
+		var timer = setInterval ( function () {
+			msg.style.filter = "alpha(opacity:"+opa+")";
+			msg.style.opacity = opa/100;
+			opa -=20;
+			if (opa <= 0) {
+				msg.style.visibility = 'hidden';
+				msg.style.filter = "alpha(opacity:100)";
+				msg.style.opacity = 1;
+				clearInterval (timer);
+			}
+		}, 100);
+	}, p_dulation);
+}
+function ajax_post (frm_name, trg_url, pcallback) {
+	function get_post_data() {
+		var frm = document.forms[frm_name];
+		var buf = '';
+		var obj, value;
+		var para = '';
+		for(i=0;i< frm.elements.length ;i++){
+			obj = frm.elements[i];
+			value = '';
+			switch (obj.type) {
+				case "checkbox":
+				case "radio":
+					if (obj.checked) { value = obj.value; } else { continue; }
+					break;
+				default:
+					value = obj.value;
+			}
+			
+			if (para != '') { para += '&'; }
+			para += obj.name+'='+encodeURIComponent(value);
+		}
+		return para;
+	}
+	function cb_ajax(){
+		if (httpObj.readyState == 4){
+			switch(httpObj.status){
+			case 200:
+				//alert (httpObj.responseText);
+				//alert (httpObj.getAllResponseHeaders());
+				var xmlData = httpObj.responseXML;
+				if (typeof (xmlData.normalize) != 'undefined') { xmlData.normalize(); }
+				pcallback(xmlData);
+				break;
+			}
+		}
+	}
+	
+	 httpObj = createXMLHttpRequest(cb_ajax);
+	if (httpObj){
+		httpObj.open("POST", trg_url, true);
+		httpObj.setRequestHeader( "Content-Type" ,  "application/x-www-form-urlencoded");
+		//alert (get_post_data());
+		httpObj.send(get_post_data());
+	}
+	
+}
+function createXMLHttpRequest(cbFunc){
+	var XMLhttpObject = null;
+	try{
+		XMLhttpObject = new XMLHttpRequest();
+	}catch(e){
+		try{
+			XMLhttpObject = new ActiveXObject("Msxml2.XMLHTTP");
+		}catch(e){
+			try{
+				XMLhttpObject = new ActiveXObject("Microsoft.XMLHTTP");
+			}catch(e){
+				return null;
+			}
+		}
+	}
+	if (XMLhttpObject) XMLhttpObject.onreadystatechange = cbFunc;
+	return XMLhttpObject;
+}

@@ -1,0 +1,346 @@
+
+<!-- saved from url=(0040)http://marginalsoft.com/tools/srctohtml/ -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=EUC-JP">
+
+<title>srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト</title>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="Cache-Control" content="no-cache">
+<link rel="stylesheet" href="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/style.css" type="text/css"><link rel="stylesheet" href="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/style(1).css" type="text/css"><script src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/f.txt"></script><script src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/f(1).txt" id="google_shimpl"></script><script type="text/javascript" async="" src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/ga.js.ダウンロード"></script><script src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/f(2).txt"></script><script type="text/javascript" src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/common.js.ダウンロード"></script><script type="text/javascript" src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/script.js.ダウンロード"></script><meta name="description" content="ブログ記事作成の際に便利なツールなどを公開しています。">
+<meta name="keywords" content="ブログ,記事,支援,ウェブサービス,フリーソフト,フリーウェア">
+<meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="></head>
+<body>
+<div id="header">
+
+<div class="header">
+	<a href="http://marginalsoft.com/"><img src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/logo.png" alt="マージナルソフト" title="マージナルソフト"></a>
+</div>
+
+<div class="tier"><a href="http://marginalsoft.com/">トップ</a>＞<a href="http://marginalsoft.com/tools/">ソフト・サービス一覧</a>＞srctohtml ソースをHTMLで見やすく出力するツール</div>
+
+</div>
+<div id="main"> 
+<div class="container">
+<a href="http://marginalsoft.com/tools/srctohtml/">[clear]</a>
+<form action="http://marginalsoft.com/tools/srctohtml/convexec.php" method="post" name="frm" target="dmy" onsubmit="return formsubmit();">
+<div class="sth_container">
+	<div class="sth_src">
+		<textarea name="src" id="src" style=""></textarea>		
+	</div>
+	<div class="sth_right">
+		<div class="sth_comment">
+			<div id="cmt"></div>
+			<center><button type="button" onclick="addcmt();">選択範囲にマーカーを追加</button> <button type="button" onclick="clearcmt();">クリア</button></center>
+			
+		</div>
+		
+	</div>
+	<div class="sth_option">
+		<label title="ソースコードの言語を選択します。選択するとコメントや文字列を強調表示します。" alt="ソースコードの言語を選択します。選択するとコメントや文字列を強調表示します。">ソース言語　<select name="sel_lang" style="width: 250px;"><option value="0" selected="">-</option><option value="1">HTML</option><option value="2">JavaScript、C++、PHPなど</option></select></label>&nbsp;&nbsp;
+		<span class="expand_label"><label title="HTML出力の形式テンプレートを選択します。" alt="HTML出力の形式テンプレートを選択します。">プロファイル　<select name="sel_profile" id="sel_profile" style="width: 180px;" onchange="prof_change();"><option value="0">-</option><option value="1" selected="">オーシャン</option><option value="2">トワイライト</option><option value="3">ノーブルレッド</option><option value="4">シンプルグレー</option><option value="5">シンプルブラック</option><option value="6">ファンシー</option><option value="7">モスグリーン</option><option value="8">ヴィヴィッドオレンジ</option></select></label>&nbsp;&nbsp;<span onclick="detail_expand(&#39;expand_table&#39;);">&nbsp;+ 詳細設定&nbsp;</span></span>
+		<table id="expand_table" class="detail_table"><tbody><tr><td>
+			<div class="detail_cat"><span>&nbsp;フォント&nbsp;</span>&nbsp;ソース表示のフォントを設定します</div>
+			<label title="文字色を１６進数またはHTMLカラーコードで指定してください" alt="文字色を１６進数またはHTMLカラーコードで指定してください">文字色<input type="text" name="fontcolor" size="7" value="#000" autocomplete="off"></label> <label title="フォントサイズを明示したい場合に入力してください" alt="フォントサイズを明示したい場合に入力してください">フォントサイズ<input type="text" name="fontsize" size="2" autocomplete="off"></label>px <br>
+			<label title="フォントを太字にします" alt="フォントを太字にします"><input type="checkbox" name="chk_bold" value="1">太字</label> <label title="フォントを斜体にします" alt="フォントを斜体にします"><input type="checkbox" name="chk_italic" value="1">斜体</label>				
+			<div class="detail_cat"><span>&nbsp;背景&nbsp;</span>&nbsp;背景に関する設定を行います</div>
+			<label title="背景色を１６進数またはHTMLカラーコードで指定してください" alt="背景色を１６進数またはHTMLカラーコードで指定してください">背景色<input type="text" name="bgcolor" size="7" value="#EEF" autocomplete="off"></label> <label title="偶数行、奇数行で色分け" alt="偶数行、奇数行で色分け"><input type="checkbox" name="chk_alternate" value="1" checked="">行を交互に色分け</label><br>
+			<label>奇数行の色<input type="text" name="odd_color" size="7" value="#EFF" autocomplete="off"></label> <label>偶数行の色<input type="text" name="even_color" size="7" value="#EEF" autocomplete="off"></label>		</td><td>
+			<div class="detail_cat"><span>&nbsp;その他&nbsp;</span>&nbsp;その他のスタイルを設定します</div>
+			<label title="全体をcodeタグで囲みたい場合にチェックしてください" alt="全体をcodeタグで囲みたい場合にチェックしてください"><input type="checkbox" name="chk_codetag" value="1" checked="">CODEタグで囲む</label> <label title="クオートをHTMLエンティティに変換したい場合にチェックしてください" alt="クオートをHTMLエンティティに変換したい場合にチェックしてください"><input type="checkbox" name="chk_quot" value="1">クオートを変換する</label><br>
+						<label title="長い行をスクロールバー表示します。チェックをオフにした場合は折り返し表示となります。" alt="長い行をスクロールバー表示します。チェックをオフにした場合は折り返し表示となります。"><input type="checkbox" name="chk_scroll" value="1">スクロール表示</label> <label title="ソースの左に行番号を表示します" alt="ソースの左に行番号を表示します"><input type="checkbox" name="chk_number" value="1" checked="">行番号を表示する</label><br>
+			<label title="ソースにタブ文字が含まれている場合に変換するスペースの個数。空欄にした場合はタブは消去されます。" alt="ソースにタブ文字が含まれている場合に変換するスペースの個数。空欄にした場合はタブは消去されます。">インデント<input type="text" name="tab_indent" size="1" value="4" autocomplete="off"></label> <label title="幅を明示する場合に入力します" alt="幅を明示する場合に入力します">全体幅<input type="text" name="totalwidth" size="4" autocomplete="off"></label>px
+		</td></tr><tr><td>
+			<div class="detail_cat"><span>&nbsp;強調表示&nbsp;</span>&nbsp;強調表示のスタイルを設定します</div>
+			<label title="コメント行に適用するスタイルシートを入力します" alt="コメント行に適用するスタイルシートを入力します">コメントスタイル <input type="text" name="cmstyle" size="40" value="color:green;font-style:italic;" autocomplete="off"></label><br>
+			<label title="文字列に適用するスタイルシートを入力します" alt="文字列に適用するスタイルシートを入力します">文字列スタイル <input type="text" name="strstyle" size="40" value="color:brown;" autocomplete="off"></label><br>
+			<label title="マーカーのスタイルを設定します" alt="マーカーのスタイルを設定します">マーカースタイル<input type="text" name="markerstyle" size="40" value="color: red;border-bottom:dotted 1px red;" autocomplete="off"></label><br>
+		</td><td align="center">
+			<div class="detail_cat"><span>&nbsp;設定保存&nbsp;</span>&nbsp;設定値をクッキーに保存します</div>
+			<button type="button" onclick="saveprof(false);">設定を保存</button> <button type="button" onclick="saveprof(true);">設定をクリア</button>
+		</td></tr></tbody></table>
+	</div>
+</div>
+<div class="sth_container">
+	<div class="sth_submit">
+		<label title="選択された行のみ出力する場合はチェックしてください。" alt="選択された行のみ出力する場合はチェックしてください。"><input type="checkbox" name="chk_selection" id="chk_selection" value="1">選択行のみ出力</label><input type="hidden" name="selection_from" id="selection_from"><input type="hidden" name="selection_to" id="selection_to"><br>
+		<input type="submit" name="exec_conv" id="exec_conv" value="HTMLに変換">	</div>
+	<div class="gg_ad"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-3687533178683616";
+google_ad_slot = "6356240460";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript" src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/f(3).txt">
+</script><ins class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-3687533178683616" data-ad-height="60" data-ad-slot="6356240460" data-ad-width="468" data-adsbygoogle-status="done" style="display: inline-block; width: 468px; height: 60px;" data-ad-status="unfilled"><div id="aswift_0_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 60px; width: 468px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:468px;height:60px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="468" height="60" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/ads.html" data-google-container-id="a!1" data-load-complete="true"></iframe></div></ins></div>
+</div>
+
+<div class="sth_container">
+	<div class="sth_dst">
+		<textarea name="dst" id="dst"></textarea><br>
+		<div id="dst_result">
+			<p>ソースのサイズ：<span id="src_size">2,652 byte</span></p>
+			<p>HTMLのサイズ：<span id="dst_size">8,650 byte</span></p>
+			<p>増減：<span id="size_rate">326 %</span></p>
+		</div>
+	</div>
+	<div class="sth_pre_container" onclick="sel_preview();">
+		<div class="expand_label"><span style="background-color: gray;margin-left: 20px;">&nbsp;プレビュー&nbsp;</span></div>
+		<div class="sth_preview" id="preview"><code>
+<ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+<li style="background-color:#EFF;">&nbsp;class Application(tk.Frame):</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, master):</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(master)</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pack()</li>
+<li style="background-color:#EFF;">import tkinter as tk</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">if __name__ == "__main__":</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;root = tk.Tk()</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;root.mainloop()</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">import tkinter as tk</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">class Application(tk.Frame):</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, master):</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(master)</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pack()</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master.geometry("300x200")</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master.title("タイピングゲーム！")</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.create_widgets()</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">if __name__ == "__main__":</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;root = tk.Tk()</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;Application(master=root)</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;root.mainloop()</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">import tkinter as tk</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master.geometry("300x200")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master.title("タイピングゲーム！")</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.create_widgets()</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Tkインスタンスに対してキーイベント処理を実装</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.master.bind("&lt;KeyPress&gt;", self.type_event)</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# ウィジェットの生成と配置</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;def create_widgets(self):</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.q_label = tk.Label(self, text="お題：", font=("",20))</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.q_label.grid(row=0, column=0)</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.q_label2 = tk.Label(self, text="tkinter", width=5, anchor="w", font=("",20))</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.q_label2.grid(row=0, column=1)</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.ans_label = tk.Label(self, text="解答：", font=("",20))</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.ans_label.grid(row=1, column=0)</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.ans_label2 = tk.Label(self, text="", width=5, anchor="w", font=("",20))</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.ans_label2.grid(row=1, column=1)</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.result_label = tk.Label(self, text="正否ラベル", font=("",20))</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.result_label.grid(row=2, column=0, columnspan=2)</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;# キー入力時のイベント処理</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def type_event(self, event):</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.ans_label2["text"] += event.keysym</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">if __name__ == "__main__":</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;root = tk.Tk()</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;Application(master=root)</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;root.mainloop()</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">import random</li>
+<li style="background-color:#EEF;">import time</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;"># 単語リスト</li>
+<li style="background-color:#EFF;">word_list = ["りんご","ばなな","いちご","れもん","さくらんぼ","みかん","ぱいなっぷる","いちじく","もも","どらごんふるーつ","ぱぱいや","めろん","ますかっと","ぐあば","ぶるーべりー"]</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">def random_word():</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;return random.choice(word_list)</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">def main():</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;score = 0</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;game_duration = 30  # ゲームの持続時間（秒）</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("ランダムタイピングゲームを開始します！")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print(f"{game_duration}秒間、できるだけ多くの単語をタイプしましょう。")</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;start_time = time.time()</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;end_time = start_time + game_duration</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;while time.time() &lt; end_time:</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target_word = random_word()</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"タイプしてください: {target_word}")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_input = input()</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if user_input == target_word:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("正確です！")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score += 1</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("間違いです。")</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print(f"ゲーム終了！スコア: {score} / {game_duration} 秒")</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">if __name__ == "__main__":</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;main()</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li style="background-color:#EEF;"></li>
+</ol></code></div>
+	</div>
+</div>
+</form>
+<div id="ifm"></div>
+<div id="msgbox" style="position: absolute; visibility: hidden; top: 326.333px; left: 263.5px; opacity: 1;">
+	<div class="msg_lbl">メッセージ</div>
+	<div id="msg">範囲が選択されていません</div>
+</div>
+<center><script type="text/javascript"><!--
+google_ad_client = "ca-pub-3687533178683616";
+google_ad_slot = "7651185159";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/f(3).txt">
+</script><ins class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-3687533178683616" data-ad-height="90" data-ad-slot="7651185159" data-ad-width="728" data-adsbygoogle-status="done" style="display: inline-block; width: 728px; height: 90px;" data-ad-status="unfilled"><div id="aswift_1_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 90px; width: 728px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:728px;height:90px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/ads(1).html" data-google-container-id="a!2" data-load-complete="true"></iframe></div></ins></center>
+<div class="desc_container"><!-- desc_container -->
+<h2>srctohtml</h2>
+<p>srctohtmlは、JavascriptやPHPなどのソースコードを、簡単にHTMLとして出力するブログの記事作成支援ツールです。HTMLソースの出力にも対応しています。</p>
+<p>生成されたソースコードは全てHTML形式となるため、Javascriptが許可されていないブログサービスでも使用可能です。またスタイルシートも全て出力HTMLに含まれますので、スタイルファイルを別途設置する必要もありません。</p>
+<p>出力HTMLのデザインは詳細に設定することも、既存のプロファイルを利用することも出来ます。<br><strong><a href="http://marginalsoft.com/tools/srctohtml/preview.php" target="_blank">[プロファイルのサンプル]</a></strong></p>
+<h3>基本的な使用方法</h3>
+<ol>
+<li>ソースコードをテキストエリアにペーストします</li>
+<li>言語を選択します</li>
+<li>プロファイル（色やスタイルの定義）を選択します</li>
+<li>HTMLに変換ボタンをクリックします</li>
+<li>出力されたHTMLをコピーし、ブログの記事編集画面に貼り付けます</li>
+</ol>
+
+<p>ブログ記事を編集するエディタの形式によって、HTMLのコピーペースト方法が異なります。</p>
+<p>HTMLを直接入力しないタイプのエディタ（高機能エディタなど）の場合は、プレビューエリアをクリックすると選択状態になりますので、右クリックしてコピーし、エディタにペーストしてください。
+HTMLを直接入力するエディタの場合は、テキストエリアに表示されているHTMLを選択し、コピーペーストしてご利用ください。</p>
+
+<h3>マーカーについて</h3>
+<p>マーカーは出力したHTMLに注釈を入力する機能です。マーカーを設定した部分は強調表示となり、マウスオンするとTipが表示されます。
+マーカーを設定する場合は、まず注釈を入れたい部分のソースを選択し、「選択範囲にマーカーを追加」ボタンをクリックします。</p>
+
+<h3>選択行のみ出力</h3>
+<p>ソースの説明をする記事を書く際に、特定の行だけを抜き出したいという場合もあると思います。選択行のみ出力チェックボックスをオンにすると、ソース中の選択された行だけが出力されます。</p>
+
+<h3>詳細設定</h3>
+<p>詳細設定タブをクリックすると、スタイルに関する設定項目が表示されます。設定した内容は「設定を保存」ボタンをクリックすることで、クッキーに保存され、次回別のソースを出力する際にも同じ設定が利用できます。</p>
+<table>
+<tbody><tr><td width="150px">フォント</td><td>文字色やサイズを指定しない場合はブログのスタイルが引き継がれます。</td></tr>
+<tr><td>背景</td><td>背景色を設定します。</td></tr>
+<tr><td>強調表示</td><td>指定された言語に対応するコメント・文字列の強調表示を設定します。設定内容はスタイルシートで記入してください。また、マーカーの強調表示方法もここで設定出来ます。</td></tr>
+<tr><td>その他</td><td>CODEタグで囲むことによって等倍フォントで表示できます（ブログのスタイルシート内容に依存します）。ソースにタブ文字が含まれる場合は、インデントで指定した数のスペースに置き換わります。いわゆるスマートインデントには対応していません。全体幅については、空欄にしておくことでブログ記事の横一杯の幅になります。</td></tr>
+</tbody></table>
+</div><!-- /desc_container -->
+</div><!-- /container -->
+<script>
+var prof = new Array();
+prof[1]= new Array();
+prof[1]["fontcolor"]="#000";
+prof[1]["bgcolor"]="#EEF";
+prof[1]["chk_alternate"]="1";
+prof[1]["odd_color"]="#EEF";
+prof[1]["even_color"]="#EFF";
+prof[1]["cmstyle"]="color:green;font-style:italic;";
+prof[1]["strstyle"]="color:brown;";
+prof[1]["markerstyle"]="background: yellow;color: red;border-bottom:dotted 1px red;font-weight:bold;";
+
+prof[2]= new Array();
+prof[2]["fontcolor"]="#FF7";
+prof[2]["bgcolor"]="#116";
+prof[2]["chk_alternate"]="1";
+prof[2]["odd_color"]="#116";
+prof[2]["even_color"]="#118";
+prof[2]["cmstyle"]="color:#0F0;font-style:italic;";
+prof[2]["strstyle"]="color:#AAF;";
+prof[2]["markerstyle"]="background: white;color: black;font-weight:bold;";
+
+prof[3]= new Array();
+prof[3]["fontcolor"]="#FFF";
+prof[3]["bgcolor"]="#611";
+prof[3]["chk_alternate"]="1";
+prof[3]["odd_color"]="#611";
+prof[3]["even_color"]="#811";
+prof[3]["cmstyle"]="color:#0FA;font-style:italic;";
+prof[3]["strstyle"]="color:#FAF;";
+prof[3]["markerstyle"]="color: #FF0;border-bottom:solid 1px #FF0;font-weight:bold;";
+
+prof[4]= new Array();
+prof[4]["fontcolor"]="#000";
+prof[4]["bgcolor"]="#F7F7F7";
+prof[4]["chk_alternate"]="";
+prof[4]["odd_color"]="";
+prof[4]["even_color"]="";
+prof[4]["cmstyle"]="color:green;font-style:italic;";
+prof[4]["strstyle"]="color:brown;";
+prof[4]["markerstyle"]="color: red;border-bottom:solid 1px red;font-weight:bold;";
+
+prof[5]= new Array();
+prof[5]["fontcolor"]="#FFF";
+prof[5]["bgcolor"]="#000";
+prof[5]["chk_alternate"]="";
+prof[5]["odd_color"]="";
+prof[5]["even_color"]="";
+prof[5]["cmstyle"]="color:lightgreen;font-style:italic;";
+prof[5]["strstyle"]="color:lightcoral;";
+prof[5]["markerstyle"]="color: red;border-bottom:solid 1px red;font-weight:bold;";
+
+prof[6]= new Array();
+prof[6]["fontcolor"]="#A00";
+prof[6]["bgcolor"]="#FFF7F7";
+prof[6]["chk_alternate"]="1";
+prof[6]["odd_color"]="#FFF7F7";
+prof[6]["even_color"]="#FFFDFD";
+prof[6]["cmstyle"]="color:#888;font-style:italic;";
+prof[6]["strstyle"]="color:#55B;";
+prof[6]["markerstyle"]="background:red;color:#FDD;font-weight:bold;";
+
+prof[7]= new Array();
+prof[7]["fontcolor"]="#FF7";
+prof[7]["bgcolor"]="#330";
+prof[7]["chk_alternate"]="1";
+prof[7]["odd_color"]="#330";
+prof[7]["even_color"]="#440";
+prof[7]["cmstyle"]="color:#0FA;";
+prof[7]["strstyle"]="color:#FAA;";
+prof[7]["markerstyle"]="color: #88F;border-bottom:dotted 2px #88F;font-weight:bold;";
+
+prof[8]= new Array();
+prof[8]["fontcolor"]="#000";
+prof[8]["bgcolor"]="green";
+prof[8]["chk_alternate"]="1";
+prof[8]["odd_color"]="#FFD550";
+prof[8]["even_color"]="#FFB530";
+prof[8]["cmstyle"]="color:green;font-style:italic;";
+prof[8]["strstyle"]="color:blue;";
+prof[8]["markerstyle"]="background:navy;color:white;border-bottom:dotted 2px red;font-weight:bold;";
+
+window.onload = function() {init();}
+</script>
+</div>
+<div id="footer">
+<div class="menu"><a href="http://marginalsoft.com/tools/">ソフトウェア</a>　　<img src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/contact.gif"><a href="http://marginalsoft.com/contact.php">お問い合わせ</a></div>
+</div>
+<div id="copy">Copyright &#169;2012 marginalsoft.com</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7756770-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_2_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/ads(2).html" data-google-container-id="a!3" data-load-complete="true"></iframe></div></ins><iframe src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="./srctohtml ソースをHTMLで見やすく出力するツール マージナルソフト_files/zrt_lookup.html" style="display: none;"></iframe></html>

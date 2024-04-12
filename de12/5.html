@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <!-- ⑥↓タイトルを変えてみよう -->
+    <title>ゲームのページ</title>
+    <!-- ⑤スタイルシートの設定をしよう -->
+    <link rel="stylesheet" href="./css/style.>
+    
+    <!-- h1.htmlからある行をコピペしてくればOK -->
+</head>
+<body>
+    <div>
+        <div style="background: #ffe6ea; background-image: radial-gradient(#fff 10%, transparent 20%), radial-gradient(#fff 10%, transparent 20%); background-size: 20px 20px;  background-position: 0 0, 10px 10px;   font-size: 100%; padding: 20px;"><h1></h1> 
+        <div style="background: #ffe6ea; background-image: radial-gradient(#fff 10%, transparent 20%), radial-gradient(#fff 10%, transparent 20%); background-size: 20px 20px;  background-position: 0 0, 10px 10px;   font-size: 100%; padding: 20px;"><h1>タイピングゲーム</h1><br>
+    </div> 
+    <h2>出てきた文字をタイピングしていくゲーム</h2><br>  
+    <h2>ソースコード</h2>
+
+    <div>
+        
+        <code>
+            <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+            <li style="background-color:#EFF;">class Application(tk.Frame):</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, master):</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(master)</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pack()</li>
+            <li style="background-color:#EFF;">import tkinter as tk</li>
+            <li style="background-color:#EEF;">if __name__ == "__main__":</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;root = tk.Tk()</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;root.mainloop()</li>
+            <li style="background-color:#EFF;">import tkinter as tk</li>
+            <li style="background-color:#EEF;">class Application(tk.Frame):</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, master):</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__(master)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pack()</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master.geometry("300x200")</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master.title("タイピングゲーム！")</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.create_widgets()</li>
+            <li style="background-color:#EFF;">if __name__ == "__main__":</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;root = tk.Tk()</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;Application(master=root)</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;root.mainloop()</li>
+            <li style="background-color:#EFF;">import tkinter as tk</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master.geometry("300x200")</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master.title("タイピングゲーム！")</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.create_widgets()</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Tkインスタンスに対してキーイベント処理を実装</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.master.bind("&lt;KeyPress&gt;", self.type_event)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;# ウィジェットの生成と配置</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def create_widgets(self):</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.q_label = tk.Label(self, text="お題：", font=("",20))</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.q_label.grid(row=0, column=0)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.q_label2 = tk.Label(self, text="tkinter", width=5, anchor="w", font=("",20))</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.q_label2.grid(row=0, column=1)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.ans_label = tk.Label(self, text="解答：", font=("",20))</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.ans_label.grid(row=1, column=0)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.ans_label2 = tk.Label(self, text="", width=5, anchor="w", font=("",20))</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.ans_label2.grid(row=1, column=1)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.result_label = tk.Label(self, text="正否ラベル", font=("",20))</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.result_label.grid(row=2, column=0, columnspan=2)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;# キー入力時のイベント処理</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;def type_event(self, event):</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.ans_label2["text"] += event.keysym</li>
+            <li style="background-color:#EEF;">if __name__ == "__main__":</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;root = tk.Tk()</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;Application(master=root)</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;root.mainloop()</li>
+            <li style="background-color:#EEF;">import random</li>
+            <li style="background-color:#EFF;">import time</li>
+            <li style="background-color:#EEF;"># 単語リスト</li>
+            <li style="background-color:#EFF;">word_list = ["りんご","ばなな","いちご","れもん","さくらんぼ","みかん","ぱいなっぷる","いちじく","もも","どらごんふるーつ","ぱぱいや","めろん","ますかっと","ぐあば","ぶるーべりー"]</li>
+            <li style="background-color:#EEF;">def random_word():</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;return random.choice(word_list)</li>
+            <li style="background-color:#EEF;">def main():</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;score = 0</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;game_duration = 30 # ゲームの持続時間（秒）</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("ランダムタイピングゲームを開始します！")</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print(f"{game_duration}秒間、できるだけ多くの単語をタイプしましょう。")</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;start_time = time.time()</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;end_time = start_time + game_duration</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;while time.time() &lt; end_time:</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target_word = random_word()</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"タイプしてください: {target_word}")</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_input = input()</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if user_input == target_word:</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("正確です！")</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score += 1</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+            <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("間違いです。")</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print(f"ゲーム終了！スコア: {score} / {game_duration} 秒")</li>
+            <li style="background-color:#EFF;">if __name__ == "__main__":</li>
+            <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;main()</li>
+            </ol></code>    
+    </div>
+    <h2>感想</h2>
+
+    基礎となるウィンドウは作れたが、問題の文字がうまく反映されず作成できなかった。<br>
+
+         <!-- ③↓に箇条書きをしてみよう -->
+         
+
+
+         <!-- ④↓に外部リンクを作ってみよう -->
+         
+         
+    
+
+    
+
+    </div>
+
+</body>
+</html>

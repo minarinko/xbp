@@ -27,15 +27,24 @@ html, body {
 	color: #393939;
     margin-left: 15px;
     margin-bottom: 40px;
-	background: #efefef;
+	background-color: #fff5f7;
+
+
 }
+
 h1{
     text-indent: 0em;
 }
-h2{
+h2 {
     margin-left: 1em;
     margin-top: 1em;
+    color: #d6336c; /* 濃いめピンク */
+    background-color:  #fff5f7; /* 薄いピンク背景 */
+    padding: 10px;
+    border-radius: 5px;
 }
+
+
 h3{
     margin-left: 2em;
 }
